@@ -1,0 +1,17 @@
+body {
+    background: white;
+}
+
+button#rules {
+    justify-content: right;
+}
+
+.player {
+    color: #056AF7;
+    text-align: right;
+    
+}
+
+.computer {
+    color: #BC0E00;
+}
