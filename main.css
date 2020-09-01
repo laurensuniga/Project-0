@@ -34,14 +34,32 @@ button#rules {
     width: 220px;
     height: 120px;
     border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
 }
 
-p.card {
-    text-align: center;
-}
 
 .card2 {
     width: 220px;
     height: 120px;
     border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.card3 {
+    width: 220px;
+    height: 120px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+
+.card4 {
+    width: 220px;
+    height: 120px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
 }
