@@ -30,3 +30,18 @@ button#rules {
 
 }
 
+.card {
+    width: 220px;
+    height: 120px;
+    border: 2px solid black;
+}
+
+p.card {
+    text-align: center;
+}
+
+.card2 {
+    width: 220px;
+    height: 120px;
+    border: 2px solid black;
+}
