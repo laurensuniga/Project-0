@@ -229,3 +229,23 @@ const cards = [
         rank: "Ace",
     }
 ]
+
+
+class card {
+    constructor(suit, rank) {
+        this.suit = suit;
+        this.rank = rank;
+    }
+}
+
+class deck {
+
+}
+
+class player {
+
+}
+
+class computer {
+
+}
