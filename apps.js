@@ -285,25 +285,32 @@ class Deck {
           playerOneCardPlayed.classList.add("card", playerOneCard[0].cssClass)
       }
 
-      shuffle() {
-          let length = this.cards.length;
-          let element;
-          let index;
+    }
+    const deck = new Deck()
+    
+    const shuffle = function(arr) {
+        let length = arr.length;
+        let element;
+        let index;
 
-          while (length) {
-            index = Math.floor(Math.random() * length--);
-            element = this.cards[length];
-            this.cards[length] = this.cards[index];
-            this.cards[index] = element;
-          }
+        while (length) {
+          index = Math.floor(Math.random() * length--);
+          element = arr[length];
+          arr[length] = arr[index];
+          arr[index] = element;
         }
+      }
 
-        dealCards() {
-
-        }
-}
-
-const deck = new Deck()
+      const dealCards = function(arr) {
+          shuffle(arr)
+          const middle = Math.floor( arr.length / 2 );
+          const left = arr.slice( 0, middle );
+          const right = arr.slice( middle );
+          player1.push(left)
+          player2.push(right)
+          console.log("player1", player1)
+          console.log("player2", player2)
+      }
 
 
 
@@ -320,3 +327,4 @@ class computer {
 
 }
 
+$("#start").on("click",() => dealCards(oldCards))
