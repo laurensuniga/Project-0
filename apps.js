@@ -32,206 +32,257 @@ const oldCards = [
     {
         suit: "clubs",
         rank: 3,
+        cssClass: "co3"
     },
     {
         suit: "clubs",
         rank: 4,
+        cssClass:"c04"
     },
     {
         suit: "clubs",
         rank: 5,
+        cssClass:"c05"
     },
     {
         suit: "clubs",
         rank: 6,
+        cssClass:"c06"
     },
     {
         suit: "clubs",
         rank: 7,
+        cssClass:"c07"
     },
     {
         suit: "clubs",
         rank: 8,
+        cssClass:"c08"
     },
     {
         suit: "clubs",
         rank: 9,
+        cssClass:"c09"
     },
     {
         suit: "clubs",
         rank: 10,
+        cssClass:"c10"
     },
     {
         suit: "clubs",
         rank: "Jack",
+        cssClass:"cJ"
     },
     {
         suit: "clubs",
         rank: "Queen",
+        cssClass:"cQ"
     },
     {
         suit: "clubs",
         rank: "King",
+        cssClass:"cK"
     },
     {
         suit: "clubs",
         rank: "Ace",
+        cssClass:"cA"
     },
     {
         suit: "spades",
         rank: 2,
+        cssClass:"s02"
     },
     {
         suit: "spades",
         rank: 3,
+        cssClass:"s03"
     },
     {
         suit: "spades",
         rank: 4,
+        cssClass:"s04"
     },
     {
         suit: "spades",
         rank: 5,
+        cssClass:"s05"
     },
     {
         suit: "spades",
         rank: 6,
+        cssClass:"s06"
     },
     {
         suit: "spades",
         rank: 7,
+        cssClass:"s07"
     },
     {
         suit: "spades",
         rank: 8,
+        cssClass:"s08"
     },
     {
         suit: "spades",
         rank: 9,
+        cssClass:"s09"
     },
     {
         suit: "spades",
         rank: 10,
+        cssClass:"s10"
     },
     {
         suit: "spades",
         rank: "Jack",
+        cssClass:"sJ"
     },
     {
         suit: "spades",
         rank: "Queen",
+        cssClass:"sQ"
     },
     {
         suit: "spades",
         rank: "King",
+        cssClass:"sK"
     },
     {
         suit: "spades",
         rank: "Ace",
+        cssClass:"sA"
     },
     {
         suit: "hearts",
         rank: 2,
+        cssClass:"h02"
     },
     {
         suit: "hearts",
         rank: 3,
+        cssClass:"h03"
     },
     {
         suit: "hearts",
         rank: 4,
+        cssClass:"h04"
     },
     {
         suit: "hearts",
         rank: 5,
+        cssClass:"h05"
     },
     {
         suit: "hearts",
         rank: 6,
+        cssClass:"h06"
     },
     {
         suit: "hearts",
         rank: 7,
+        cssClass:"h07"
     },
     {
         suit: "hearts",
         rank: 8,
+        cssClass:"h08"
     },
     {
         suit: "hearts",
         rank: 9,
+        cssClass:"h09"
     },
     {
         suit: "hearts",
         rank: 10,
+        cssClass:"h10"
     },
     {
         suit: "hearts",
         rank: "Jack",
+        cssClass:"hJ"
     },
     {
         suit: "hearts",
         rank: "Queen",
+        cssClass:"hQ"
     },
     {
         suit: "hearts",
         rank: "King",
+        cssClass:"hK"
     },
     {
         suit: "hearts",
         rank: "Ace",
+        cssClass:"hA"
     },
     {
         suit: "diamonds",
         rank: 2,
+        cssClass:"d02"
     },
     {
         suit: "diamonds",
         rank: 3,
+        cssClass:"d03"
     },
     {
         suit: "diamonds",
         rank: 4,
+        cssClass:"d04"
     },
     {
         suit: "diamonds",
         rank: 5,
+        cssClass:"d05"
     },
     {
         suit: "diamonds",
         rank: 6,
+        cssClass:"d06"
     },
     {
         suit: "diamonds",
         rank: 7,
+        cssClass:"d07"
     },
     {
         suit: "diamonds",
         rank: 8,
+        cssClass:"d08"
     },
     {
         suit: "diamonds",
         rank: 9,
+        cssClass:"d09"
     },
     {
         suit: "diamonds",
         rank: 10,
+        cssClass:"d10"
     },
     {
         suit: "diamonds",
         rank: "Jack",
+        cssClass:"dJ"
     },
     {
         suit: "diamonds",
         rank: "Queen",
+        cssClass:"dQ"
     },
     {
         suit: "diamonds",
         rank: "King",
+        cssClass:"dK"
     },
     {
         suit: "diamonds",
         rank: "Ace",
+        cssClass:"dA"
     },
 ]
 
@@ -279,7 +330,7 @@ class Deck {
         });
       }
       flipCards(){
-          const playerOneCard = cards.splice(0, 1)
+          const playerOneCard = player1.splice(0, 1)
           console.log(playerOneCard)
           const playerOneCardPlayed = document.querySelector(".card2")
           playerOneCardPlayed.classList.add("card", playerOneCard[0].cssClass)
@@ -288,6 +339,12 @@ class Deck {
     }
     const deck = new Deck()
     
+
+    /**
+     * Randomizes the internal cards array using the shuffle fisher yates shuffle
+     *  @author  Mike Bostock  https://bost.ocks.org/mike/shuffle/
+     */
+
     const shuffle = function(arr) {
         let length = arr.length;
         let element;
@@ -314,10 +371,6 @@ class Deck {
 
 
 
-/**
-     * Randomizes the internal cards array using the shuffle fisher yates shuffle
-     *  @author  Mike Bostock  https://bost.ocks.org/mike/shuffle/
-     */
 
 class player {
 
