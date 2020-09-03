@@ -336,9 +336,18 @@ class Deck {
           playerOneCardPlayed.classList.add("card", playerOneCard[0].cssClass)
       }
 
+      flipCards(){
+          const playerTwoCard = player2.splice(0, 1)
+          console.log(playerTwoCard)
+          const playerTwoCardPlayed = document.querySelector(".card2")
+          playerTwoCardPlayed.classList.add("card", playerTwoCard[0].cssClass)
+      }
+
     }
     const deck = new Deck()
     
+
+
 
     /**
      * Randomizes the internal cards array using the shuffle fisher yates shuffle
@@ -363,21 +372,25 @@ class Deck {
           const middle = Math.floor( arr.length / 2 );
           const left = arr.slice( 0, middle );
           const right = arr.slice( middle );
-          player1.push(left)
-          player2.push(right)
+          player1.push(...left)
+          player2.push(...right)
           console.log("player1", player1)
           console.log("player2", player2)
       }
 
 
-
-
-class player {
+class Game {
+    war() {
+        if (playerOneCard > playerTwoCard) {
+            console.log("The computer gets the cards.")
+        } else if (playerOneCard < playerTwoCard) {
+            console.log("You get the cards.")
+        } else {
+            console.log("This means war!")
+        }
+    }
 
 }
 
-class computer {
-
-}
-
+      
 $("#start").on("click",() => dealCards(oldCards))
