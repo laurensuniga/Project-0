@@ -22,6 +22,9 @@
 let cards = []
 let player1 = []
 let player2 = []
+let playerOneCard;
+let playerTwoCard;
+let tieCards = []
 
 const oldCards = [
     {
@@ -307,7 +310,7 @@ class Deck {
         cards = []
         const suits = ["clubs", "spades", "hearts", "diamonds"]
         suits.forEach((suit) => {
-          for (let i = 2; i <= 14; i++){
+          for (let i = 12; i <= 14; i++){
               let cssClass = ""
             if(i<=9){
             cssClass = `${suit.charAt(0)}0${i}`
@@ -335,34 +338,44 @@ class Deck {
         
       
       flipCards(){
-          const playerOneCard = player1.splice(0, 1)
-          console.log(playerOneCard)
+            playerOneCard = player1.splice(0, 1)[0]
+        //   console.log(playerOneCard)
           const playerOneCardPlayed = document.querySelector(".card2")
-          playerOneCardPlayed.classList.add("card", playerOneCard[0].cssClass)
-          const playerTwoCard = player2.splice(0, 1)
-          console.log(playerTwoCard)
+        //   console.log(playerOneCardPlayed)
+        //   playerOneCardPlayed.classList.add("card", playerOneCard[0].cssClass)
+          playerOneCardPlayed.classList = `card2 card ${playerOneCard.cssClass}`
+          playerTwoCard = player2.splice(0, 1)[0]
+        //   console.log(playerTwoCard)
           const playerTwoCardPlayed = document.querySelector(".card4")
-          playerTwoCardPlayed.classList.add("card", playerTwoCard[0].cssClass)
-
-          if (playerOneCardPlayed > playerTwoCardPlayed) {
-            console.log("The computer gets the cards.");
-        } else if (playerOneCardPlayed < playerTwoCardPlayed) {
-            console.log("You get the cards.");
-        } else {
-            console.log("This means war!");
-        }
+        //   playerTwoCardPlayed.classList.add("card", playerTwoCard[0].cssClass)
+          playerTwoCardPlayed.classList = `card4 card ${playerTwoCard.cssClass}`
 
         }
         
-    //     compareCards() {
-    //       if (playerOneCardPlayed > playerTwoCardPlayed) {
-    //           console.log("The computer gets the cards.");
-    //       } else if (playerOneCardPlayed < playerTwoCardPlayed) {
-    //           console.log("You get the cards.");
-    //       } else {
-    //           console.log("This means war!");
-    //       }
-    //   }
+        compareCards() {
+            console.log("compareCards")
+            console.log(playerOneCard)
+            console.log(playerTwoCard)
+          if (playerOneCard.rank > playerTwoCard.rank) {
+              console.log("The computer gets the cards.");
+              player1.push(playerOneCard, playerTwoCard, ...tieCards)
+              tieCards=[]
+          } else if (playerOneCard.rank < playerTwoCard.rank) {
+              console.log("You get the cards.");
+              player2.push(playerOneCard, playerTwoCard, ...tieCards)
+              tieCards=[]
+          } else {
+              tieCards=[]
+              tieCards.push(playerOneCard, playerTwoCard)
+              console.log("This means war!!!!!!!");
+              for (let i = 0; i < 3; i++) {
+                this.flipCards()
+                if (i < 2) tieCards.push(playerOneCard, playerTwoCard)
+                
+            }
+            this.compareCards()
+          }
+      }
         
     }
     const deck = new Deck()
@@ -389,15 +402,20 @@ class Deck {
       }
 
       const dealCards = function(arr) {
-          shuffle(arr)
-          const middle = Math.floor( arr.length / 2 );
-          const left = arr.slice( 0, middle );
-          const right = arr.slice( middle );
+          deck.generateDeck()
+          shuffle(cards)
+          const middle = Math.floor( cards.length / 2 );
+          const left = cards.slice( 0, middle );
+          const right = cards.slice( middle );
           player1.push(...left)
           player2.push(...right)
           console.log("player1", player1)
           console.log("player2", player2)
       }
+
+    //   const winner = function(){
+
+    //   }
 
 
 
@@ -406,7 +424,7 @@ class Deck {
 
 
       
-$("#start").on("click",() => dealCards(oldCards))
+$("#start").on("click",() => dealCards(cards))
 $("#flip").on("click", function() {
     deck.flipCards()
     deck.compareCards()
