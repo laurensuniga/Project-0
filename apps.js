@@ -295,6 +295,8 @@ class Card {
 }
 
 
+
+
 class Deck {
     constructor() {
         this.cards = [];
@@ -329,20 +331,39 @@ class Deck {
           }
         });
       }
+
+        
+      
       flipCards(){
           const playerOneCard = player1.splice(0, 1)
           console.log(playerOneCard)
           const playerOneCardPlayed = document.querySelector(".card2")
           playerOneCardPlayed.classList.add("card", playerOneCard[0].cssClass)
-      }
-
-      flipCards(){
           const playerTwoCard = player2.splice(0, 1)
           console.log(playerTwoCard)
-          const playerTwoCardPlayed = document.querySelector(".card2")
+          const playerTwoCardPlayed = document.querySelector(".card4")
           playerTwoCardPlayed.classList.add("card", playerTwoCard[0].cssClass)
-      }
 
+          if (playerOneCardPlayed > playerTwoCardPlayed) {
+            console.log("The computer gets the cards.");
+        } else if (playerOneCardPlayed < playerTwoCardPlayed) {
+            console.log("You get the cards.");
+        } else {
+            console.log("This means war!");
+        }
+
+        }
+        
+    //     compareCards() {
+    //       if (playerOneCardPlayed > playerTwoCardPlayed) {
+    //           console.log("The computer gets the cards.");
+    //       } else if (playerOneCardPlayed < playerTwoCardPlayed) {
+    //           console.log("You get the cards.");
+    //       } else {
+    //           console.log("This means war!");
+    //       }
+    //   }
+        
     }
     const deck = new Deck()
     
@@ -379,18 +400,22 @@ class Deck {
       }
 
 
-class Game {
-    war() {
-        if (playerOneCard > playerTwoCard) {
-            console.log("The computer gets the cards.")
-        } else if (playerOneCard < playerTwoCard) {
-            console.log("You get the cards.")
-        } else {
-            console.log("This means war!")
-        }
-    }
 
-}
+
+
+
 
       
 $("#start").on("click",() => dealCards(oldCards))
+$("#flip").on("click", function() {
+    deck.flipCards()
+    deck.compareCards()
+})
+$("#rules").on("click", function(){
+    if ($(".rules-list").attr("id")==="visable"){
+        $(".rules-list").attr("id", "hidden")
+    }else{
+        $(".rules-list").attr("id", "visable")
+    }
+})
+
