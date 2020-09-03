@@ -1,5 +1,5 @@
 body {
-    background: white;
+    background: #427643;
 }
 
 h1 {
@@ -25,7 +25,7 @@ button#rules {
 
 
 .player {
-    color: #056AF7;
+    color: black;
     position: relative;
     text-align: right;
     font-family: "Saira Extra Condensed", sans-serif;
@@ -33,7 +33,7 @@ button#rules {
 }
 
 .computer {
-    color: #BC0E00;
+    color: black;
     padding-top: 50px;
     font-family: "Saira Extra Condensed", sans-serif;
 
