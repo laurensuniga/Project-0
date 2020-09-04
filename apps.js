@@ -310,7 +310,7 @@ class Deck {
         cards = []
         const suits = ["clubs", "spades", "hearts", "diamonds"]
         suits.forEach((suit) => {
-          for (let i = 12; i <= 14; i++){
+          for (let i = 2; i <= 14; i++){
               let cssClass = ""
             if(i<=9){
             cssClass = `${suit.charAt(0)}0${i}`
@@ -339,13 +339,13 @@ class Deck {
       
       flipCards(){
             playerOneCard = player1.splice(0, 1)[0]
-        //   console.log(playerOneCard)
+          console.log(playerOneCard)
           const playerOneCardPlayed = document.querySelector(".card2")
-        //   console.log(playerOneCardPlayed)
+          console.log(playerOneCardPlayed)
         //   playerOneCardPlayed.classList.add("card", playerOneCard[0].cssClass)
           playerOneCardPlayed.classList = `card2 card ${playerOneCard.cssClass}`
           playerTwoCard = player2.splice(0, 1)[0]
-        //   console.log(playerTwoCard)
+          console.log(playerTwoCard)
           const playerTwoCardPlayed = document.querySelector(".card4")
         //   playerTwoCardPlayed.classList.add("card", playerTwoCard[0].cssClass)
           playerTwoCardPlayed.classList = `card4 card ${playerTwoCard.cssClass}`
@@ -413,9 +413,8 @@ class Deck {
           console.log("player2", player2)
       }
 
-    //   const winner = function(){
+    
 
-    //   }
 
 
 
@@ -424,7 +423,12 @@ class Deck {
 
 
       
-$("#start").on("click",() => dealCards(cards))
+$("#start").on("click", function() {
+    dealCards(cards)
+    console.log("The game has started")
+})
+
+// $("#start").on("click",() => dealCards(cards))
 $("#flip").on("click", function() {
     deck.flipCards()
     deck.compareCards()

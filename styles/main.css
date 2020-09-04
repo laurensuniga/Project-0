@@ -76,6 +76,7 @@ button#rules {
 .board-container {
     display: flex;
     justify-content: space-between;
+    justify-content: space-around;
 }
 
 .board-container___cpu {
