@@ -23,19 +23,17 @@ The game ends once either the Player or the Computer has all of the cards or som
 
 
 
-# MVP:
-
-* The game I want to make is the card game war. 
+# MVP: 
 
 * Two players. One human and one cpu.
 
-* I want to allow the Player to control most of the game and when the player pushes a buttom to flip a card it'll trigger the computer to flip their card as well since the two cards need to be flipped at the same time. 
+* I want to allow the Player to control most of the game.
 
-* If two cards pop up and they are the same then a pop up screen pops up that signifies its time to go to war.
+* Rules button that will have the rules appear and disappear when clicked.
 
-* There will be a button on the pop up that will trigger a face up and face down card to be pulled from the deck.
+* When the player pushes a buttom to flip a card it'll trigger the computer to flip their card as well since the two cards need to be flipped at the same time. 
 
+* When the two cards are the same then the game will automatically pull out two more cards for each player.
 
-# Strech Goals
+* The game will then compare the face up cards and give the player with the higher card all the currently played cards
 
-* Creating the game to have a nicer design over all.
